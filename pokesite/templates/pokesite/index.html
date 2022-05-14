@@ -3,9 +3,6 @@
     <head>
         <title>Single Page</title>
         <script>
-
-            //  This function communicates with django (backend)
-            
             function showSection(section) {   
                 fetch(`/sections/${section}`)
                 .then(response => response.text())
@@ -13,10 +10,7 @@
                     console.log(text);
                     document.querySelector('#content').innerHTML = text;
                 });
-
             }
-
-
             document.addEventListener("DOMContentLoaded", function() {
                 document.querySelectorAll('button').forEach(button => {
                     button.onclick = function() {
@@ -24,20 +18,18 @@
                     }
                 })
             });
-
-
         </script>
     </head>
     <body>
-        <h1>Hello</h1>
-        <button data-section="1">Section 1</button>
-        <button data-section="2">Section 2</button>
-        <button data-section="3">Section 3</button>
-
-        <!-- Contents loaded from server is inserted here by javascript -->
+        <center>
+        <a href="http://127.0.0.1:8000/character/?format=json">JSON</a><br>
+        <a href="http://127.0.0.1:8000/character/?format=api">REST API</a>
+        <h1>Character Bios in Pokemon</h1><br>
+        {% for hero in characters %}
+        <button data-section= {{ forloop.counter0 }}> {{ hero.name }}</button>
+        {% endfor %}
         <div id="content">
-
         </div>
-    
+        </center>
     </body>
 </html>
