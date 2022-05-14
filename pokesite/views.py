@@ -21,7 +21,10 @@ def section(request, num):
     if num < len(QEURYSET):
         hero = QEURYSET[num]
         output = f"""<center><br>
-PokeDex: {hero.rating}<br>
+{hero.name}<br>
+Level: {hero.level}<br>
+PokeDex: {hero.pokedex}<br>
+Pokemons: {hero.pokemons}<br>
 Phone: {hero.phone}<br>
 Email: {hero.email}
 </center>
