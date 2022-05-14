@@ -4,4 +4,4 @@ from .models import Characters
 class CharacterSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Characters
-        fields = ('name', 'phone', 'email', 'rating', 'created_time')
+        fields = ('name', 'phone', 'email', 'pokedex', 'pokemons', 'level')
