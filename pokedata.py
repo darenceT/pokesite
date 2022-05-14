@@ -3,35 +3,35 @@ import json
 import pandas as pd
 
 
-class Trainer:
-    def __init__(self, data):
-        self.__name = data['name']
-        self.__level = data['level']
-        self.__pokedex = data['pokedex']
-        self.__pokemons = data['pokemons']
+# class Trainer:
+#     def __init__(self, data):
+#         self.__name = data['name']
+#         self.__level = data['level']
+#         self.__pokedex = data['pokedex']
+#         self.__pokemons = data['pokemons']
 
-    @property
-    def name(self):
-        return self.__name
+#     @property
+#     def name(self):
+#         return self.__name
 
-    @property
-    def level(self):
-        return self.__level
+#     @property
+#     def level(self):
+#         return self.__level
 
-    @property
-    def pokedex(self):
-        return self.__pokedex
+#     @property
+#     def pokedex(self):
+#         return self.__pokedex
 
-    @property
-    def pokemons(self):
-        return self.__pokemons
+#     @property
+#     def pokemons(self):
+#         return self.__pokemons
 
-    def __str__(self):
-        return f"""
-Name: {self.__name}
-Level: {self.__level}
-PokeDex: {self.__pokedex}
-Pokemons: {self.__pokemons}"""
+#     def __str__(self):
+#         return f"""
+# Name: {self.__name}
+# Level: {self.__level}
+# PokeDex: {self.__pokedex}
+# Pokemons: {self.__pokemons}"""
 
 class TrainerDex:
     def __init__(self):
@@ -76,9 +76,6 @@ class TrainerDex:
                 self.__series_analysis(input_s)
             input_s = input(input_query)
 
-    def __df_selection(self):
-        pass
-
     def __series_analysis(self, selection):
         ref = {"1":"level", "2":"pokedex", "3":"pokemons"}
         pick = ref[selection]
@@ -87,6 +84,18 @@ class TrainerDex:
             series_data[trainer['name']] = trainer[pick]
         series_in_pd = pd.Series(series_data)
         print(f'\n\n{series_in_pd.sort_values(ascending=False)}')
+
+    def __df_selection(self):
+        pass
+
+    def __df_analysis(self):
+        data = {"name": [], "level": [], "pokedex": [], "pokemons": []}
+        for trainer in self.__gym:
+            data["name"]].append(trainer['name'])
+            data["level"]].append(trainer['level'])
+            data["pokedex"]].append(trainer['pokedex'])
+            data["pokemons"]].append(trainer['pokemons'])
+        df_data = pd.DataFrame(data)
 
 if __name__ == "__main__":
     t = TrainerDex()
