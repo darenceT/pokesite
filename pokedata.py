@@ -30,7 +30,7 @@ class TrainerDex:
         """
         Access online JSON file for data then process into this class's container
         """
-        url = 'http://ec2-44-202-93-255.compute-1.amazonaws.com:5000/character/?format=json'
+        url = 'http://ec2-54-83-124-106.compute-1.amazonaws.com:5000/character/?format=json'
         with urlopen(url) as response:
             info = json.load(response)
 
